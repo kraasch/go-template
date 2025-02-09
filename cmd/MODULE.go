@@ -60,6 +60,7 @@ func (m model) View() string {
   } else {
     str = engine.Toast("Hi!")
   }
+  str = styleBox.Render(str)
   return lip.Place(m.width, m.height, lip.Center, lip.Center, str)
 }
 
