@@ -23,8 +23,8 @@
 # ├── Makefile
 # ├── pkg
 # │   └── PACKAGE
-# │       ├── engine.go
-# │       └── engine_test.go
+# │       ├── main.go
+# │       └── main.go
 # └── README.md
 # 5 directories, 8 files
 
@@ -64,8 +64,8 @@ mv ./pkg/PACKAGE/ ./pkg/"$PACKAGE"
 
 ### replace values.
 sed -i "s/MODULE/$MODULE/g" ./Makefile
-sed -i "s/PACKAGE/$PACKAGE/g" ./pkg/"$PACKAGE"/engine_test.go
-sed -i "s/PACKAGE/$PACKAGE/g" ./pkg/"$PACKAGE"/engine.go
+sed -i "s/PACKAGE/$PACKAGE/g" ./pkg/"$PACKAGE"/main.go
+sed -i "s/PACKAGE/$PACKAGE/g" ./pkg/"$PACKAGE"/main.go
 sed -i "s/FIRSTNAME/$FIRSTNAME/g" ./LICENSE
 sed -i "s/LASTNAME/$LASTNAME/g" ./LICENSE
 sed -i "s/MYYEAR/$YEAR/g" ./LICENSE
