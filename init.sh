@@ -18,7 +18,6 @@
 # │       └── goreleaser.yml
 # ├── cmd
 # │   └── MODULE.go
-# ├── init.sh
 # ├── LICENSE
 # ├── Makefile
 # ├── pkg
@@ -61,6 +60,8 @@ YEAR=$(date +%Y)
 ### move files.
 mv ./cmd/MODULE.go ./cmd/"$MODULE".go
 mv ./pkg/PACKAGE/ ./pkg/"$PACKAGE"
+rm ./README.md
+mv ./NEWREADME.md ./README.md
 
 ### replace values.
 sed -i "s/MODULE/$MODULE/g" ./Makefile
@@ -73,6 +74,10 @@ sed -i "s/GITHUB/$GITHUB/g" ./cmd/"$MODULE".go
 sed -i "s/MODULE/$MODULE/g" ./cmd/"$MODULE".go
 sed -i "s/PACKAGE/$PACKAGE/g" ./cmd/"$MODULE".go
 sed -i "s/MODULE/$MODULE/g" ./README.md
+sed -i "s/GITHUB/$GITHUB/g" ./README.md
+
+### delete lines.
+sed -i "/<REMOVE>/d" ./Makefile
 
 ### get the latest gitignore.
 curl -s 'https://raw.githubusercontent.com/github/gitignore/refs/heads/main/Go.gitignore' >>.gitignore

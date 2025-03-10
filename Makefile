@@ -1,3 +1,6 @@
+                   #<REMOVE>
+init:              #<REMOVE>
+	bash ./init.sh   #<REMOVE>
 
 test:
 	go clean -testcache
@@ -15,11 +18,9 @@ build:
 		-gcflags -m=2 \
 		./cmd/ 
 
-# TODO: remove this.
-init:
-	bash ./init.sh
+install:
+	ln "$(realpath ./build/MODULE)" -s ~/.local/bin/MODULE
 
-# TODO: remove this if you don't need it.
 hub_update:
 	@hub_ctrl ${HUB_MODE} ln "$(realpath ./build/MODULE)"
 
