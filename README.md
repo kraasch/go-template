@@ -38,6 +38,8 @@ cd ./go-template
 make
 ```
 
+Or fork the project and update my default data with yours in [initialization script](./init.sh).
+
 ## Overview
 
 The script will create the following directory tree:
