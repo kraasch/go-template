@@ -1,32 +1,5 @@
 #!/bin/bash
 
-# This script will initialize a go project with a package and tests.
-# - [ ] go
-#   - module name
-#   - package name
-#   - go tests
-# - goreleaser for ci/cd
-# - makefile
-# - readme
-# - license (MIT)
-# - gitignore
-# It will create the following directory tree:
-# .
-# ├── .gitignore
-# ├── .github
-# │   └── workflows
-# │       └── goreleaser.yml
-# ├── cmd
-# │   └── MODULE.go
-# ├── LICENSE
-# ├── Makefile
-# ├── pkg
-# │   └── PACKAGE
-# │       ├── main.go
-# │       └── main.go
-# └── README.md
-# 5 directories, 8 files
-
 ### read values.
 echo "Your first name:"
 read FIRSTNAME
@@ -42,6 +15,11 @@ echo "Your github username:"
 read GITHUB
 if $(test -z "$GITHUB"); then
   GITHUB='kraasch'
+fi
+echo "Your email adddress:"
+read EMAIL
+if $(test -z "$EMAIL"); then
+  EMAIL='alex@kraasch.eu'
 fi
 echo "New module name:"
 read MODULE
@@ -62,6 +40,8 @@ mv ./cmd/MODULE.go ./cmd/"$MODULE".go
 mv ./pkg/PACKAGE/ ./pkg/"$PACKAGE"
 rm ./README.md
 mv ./NEWREADME.md ./README.md
+rm ./.goreleaser.yaml
+mv ./NEW.goreleaser.yaml ./.goreleaser.yaml
 
 ### replace values.
 sed -i "s/MODULE/$MODULE/g" ./Makefile
@@ -75,6 +55,7 @@ sed -i "s/MODULE/$MODULE/g" ./cmd/"$MODULE".go
 sed -i "s/PACKAGE/$PACKAGE/g" ./cmd/"$MODULE".go
 sed -i "s/MODULE/$MODULE/g" ./README.md
 sed -i "s/GITHUB/$GITHUB/g" ./README.md
+sed -i "s/EMAIL/$EMAIL/g" ./README.md
 
 ### delete lines.
 sed -i "/<REMOVE>/d" ./Makefile

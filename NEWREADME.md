@@ -66,7 +66,7 @@ MODULE.DoSomething("Hello")
 
 ## Feedback
 
-I can be reached via [alex@kraasch.eu](mailto:alex@kraasch.eu).
+I can be reached via [EMAIL](mailto:EMAIL).
 
 ## Contributing
 
