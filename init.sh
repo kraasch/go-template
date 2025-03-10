@@ -66,7 +66,7 @@ mv ./NEWREADME.md ./README.md
 ### replace values.
 sed -i "s/MODULE/$MODULE/g" ./Makefile
 sed -i "s/PACKAGE/$PACKAGE/g" ./pkg/"$PACKAGE"/main.go
-sed -i "s/PACKAGE/$PACKAGE/g" ./pkg/"$PACKAGE"/main.go
+sed -i "s/PACKAGE/$PACKAGE/g" ./pkg/"$PACKAGE"/main_test.go
 sed -i "s/FIRSTNAME/$FIRSTNAME/g" ./LICENSE
 sed -i "s/LASTNAME/$LASTNAME/g" ./LICENSE
 sed -i "s/MYYEAR/$YEAR/g" ./LICENSE
